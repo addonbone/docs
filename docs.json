@@ -17,19 +17,20 @@
           {
             "group": "Get Started",
             "pages": [
-              {
-                "page": "index",
-                "label": "Introduction"
-              },
-              "installation",
-              {
-                "page": "installation",
-                "pages": [
-                  "new-extension",
-                  "development-mode",
-                  "production-build"
-                ]
-              }
+              "index",
+              "quickstart",
+              "development"
+            ]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/settings",
+              "essentials/navigation",
+              "essentials/reusable-snippets"
             ]
           }
         ]
@@ -41,15 +42,6 @@
             "group": "API Documentation",
             "pages": [
               "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
             ]
           }
         ]
