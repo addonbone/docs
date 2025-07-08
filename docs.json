@@ -1,78 +1,168 @@
 {
-    "$schema": "https://mintlify.com/docs.json",
-    "theme": "mint",
-    "name": "AddonBone Docs",
-    "colors": {
-        "primary": "#16A34A",
-        "light": "#07C983",
-        "dark": "#15803D"
-    },
-    "favicon": "/favicon.svg",
-    "navigation": {
-        "tabs": [
-            {
-                "tab": "Guides",
-                "groups": [
-                    {
-                        "group": "Get Started",
-                        "pages": [
-                            "index.mdx",
-                            {
-                                "label": "Installation",
-                                "pages": [
-                                    "installation/new-extension",
-                                    "installation/development-mode",
-                                    "installation/production-build"
-                                ]
-                            }
-                        ]
-                    }
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "AddonBone Docs",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "index",
+              {
+                "label": "Installation",
+                "pages": [
+                  "installation/new-extension",
+                  "installation/development-mode",
+                  "installation/production-build"
                 ]
-            },
-            {
-                "tab": "API Reference",
-                "groups": [
-                    {
-                        "group": "API Documentation",
-                        "pages": [
-                            "api-reference/introduction"
-                        ]
-                    },
-                    {
-                        "group": "Endpoint Examples",
-                        "pages": [
-                            "api-reference/endpoint/get",
-                            "api-reference/endpoint/create",
-                            "api-reference/endpoint/delete",
-                            "api-reference/endpoint/webhook"
-                        ]
-                    }
+              }
+            ]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/structure",
+              {
+                "label": "Configuration",
+                "pages": [
+                  "essentials/configuration/framework",
+                  "essentials/configuration/typescript"
                 ]
-            }
+              },
+              "essentials/entrypoint",
+              "essentials/extension-apis",
+              {
+                "label": "Storage",
+                "pages": [
+                  "essentials/storage/storage",
+                  "essentials/storage/secure-storage",
+                  "essentials/storage/react"
+                ]
+              },
+              {
+                "label": "Messaging",
+                "pages": [
+                  "essentials/messaging/introduction",
+                  "essentials/messaging/react"
+                ]
+              },
+              {
+                "label": "Locales",
+                "pages": [
+                  "essentials/locales/introduction",
+                  "essentials/locales/native-locale",
+                  "essentials/locales/dynamic-locale",
+                  "essentials/locales/custom-locale",
+                  "essentials/locales/react"
+                ]
+              },
+              "essentials/icon",
+              "essentials/assets",
+              "essentials/env",
+              {
+                "label": "Plugin",
+                "pages": [
+                  "essentials/plugin/introduction",
+                  "essentials/plugin/startup",
+                  "essentials/plugin/manifest",
+                  "essentials/plugin/locales",
+                  "essentials/plugin/icons",
+                  {
+                    "label": "Bundler (Rspack)",
+                    "pages": [
+                      "essentials/plugin/bundler/entrypoints/background",
+                      "essentials/plugin/bundler/entrypoints/command",
+                      "essentials/plugin/bundler/entrypoints/service",
+                      "essentials/plugin/bundler/entrypoints/content-script",
+                      "essentials/plugin/bundler/entrypoints/relay",
+                      "essentials/plugin/bundler/entrypoints/offscreen",
+                      "essentials/plugin/bundler/entrypoints/page",
+                      "essentials/plugin/bundler/entrypoints/popup",
+                      "essentials/plugin/bundler/entrypoints/sidebar"
+                    ]
+                  },
+                  "essentials/plugin/publishing"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Entrypoints",
+            "pages": [
+              "entrypoints/background",
+              "entrypoints/command",
+              "entrypoints/service",
+              "entrypoints/content-script",
+              "entrypoints/relay",
+              "entrypoints/offscreen",
+              "entrypoints/page",
+              "entrypoints/popup",
+              "entrypoints/sidebar"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/compare",
+              "resources/faq",
+              "resources/plugins"
+            ]
+          }
         ]
-    },
-    "logo": {
-        "light": "/logo/light.svg",
-        "dark": "/logo/dark.svg"
-    },
-    "navbar": {
-        "links": [
-            {
-                "label": "Support",
-                "href": "mailto:hi@mintlify.com"
-            }
-        ],
-        "primary": {
-            "type": "button",
-            "label": "Dashboard",
-            "href": "https://dashboard.mintlify.com"
-        }
-    },
-    "footer": {
-        "socials": {
-            "x": "https://x.com/mintlify",
-            "github": "https://github.com/mintlify",
-            "linkedin": "https://linkedin.com/company/mintlify"
-        }
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:hi@mintlify.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
     }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  }
 }
