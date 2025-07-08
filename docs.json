@@ -21,7 +21,7 @@
         {
           "group": "Installation",
           "pages": [
-            "get-started/installation/index",
+            "get-started/installation",
             "get-started/installation/new-extension",
             "get-started/installation/development-mode",
             "get-started/installation/production-build"
