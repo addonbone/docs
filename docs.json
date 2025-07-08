@@ -16,13 +16,13 @@
           {
             "group": "Get Started",
             "pages": [
-              "index.mdx",
+              "index",
               {
-                "label": "Installation",
+                "page": "installation",
                 "pages": [
-                  "installation/new-extension.mdx",
-                  "installation/development-mode.mdx",
-                  "installation/production-build.mdx"
+                  "installation/new-extension",
+                  "installation/development-mode",
+                  "installation/production-build"
                 ]
               }
             ]
