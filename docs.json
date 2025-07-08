@@ -21,7 +21,6 @@
         {
           "group": "Installation",
           "pages": [
-            "get-started/installation",
             "get-started/installation/new-extension",
             "get-started/installation/development-mode",
             "get-started/installation/production-build"
@@ -30,14 +29,76 @@
       ]
     },
     {
-      "group": "Essentials",
+  "group": "Essentials",
+  "icon": "star",
+  "pages": [
+    "essentials/structure",
+    "essentials/entrypoint",
+    "essentials/extension-apis",
+    "essentials/icon",
+    "essentials/assets",
+    "essentials/env",
+    "essentials/publishing",
+    {
+      "group": "Configuration",
+      "icon": "settings",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "essentials/configuration/framework",
+        "essentials/configuration/typescript"
+      ]
+    },
+    {
+      "group": "Storage",
+      "icon": "database",
+      "pages": [
+        "essentials/storage/storage",
+        "essentials/storage/secure-storage",
+        "essentials/storage/react"
+      ]
+    },
+    {
+      "group": "Messaging",
+      "icon": "message-square",
+      "pages": [
+        "essentials/messaging/introduction",
+        "essentials/messaging/react"
+      ]
+    },
+    {
+      "group": "Locales",
+      "icon": "globe",
+      "pages": [
+        "essentials/locales/introduction",
+        "essentials/locales/native-locale",
+        "essentials/locales/dynamic-locale",
+        "essentials/locales/custom-locale",
+        "essentials/locales/react"
+      ]
+    },
+    {
+      "group": "Plugin",
+      "icon": "plug",
+      "pages": [
+        "essentials/plugin/introduction",
+        "essentials/plugin/startup",
+        "essentials/plugin/manifest",
+        "essentials/plugin/locales",
+        "essentials/plugin/icons",
+        {
+          "group": "Entrypoints",
+          "icon": "arrow-right-circle",
+          "pages": [
+            "essentials/plugin/entrypoints/background",
+            "essentials/plugin/entrypoints/command",
+            "essentials/plugin/entrypoints/service",
+            "essentials/plugin/entrypoints/content-script",
+            "essentials/plugin/entrypoints/relay",
+            "essentials/plugin/entrypoints/offscreen",
+            "essentials/plugin/entrypoints/page",
+            "essentials/plugin/entrypoints/popup",
+            "essentials/plugin/entrypoints/sidebar"
+          ]
+        }
       ]
     }
   ]
