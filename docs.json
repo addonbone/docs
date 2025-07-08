@@ -34,31 +34,7 @@
     "essentials/icon",
     "essentials/assets",
     "essentials/environment-variables",
-    {
-      "group": "Plugin",
-      "pages": [
-        "essentials/plugin/introduction",
-        "essentials/plugin/startup",
-        "essentials/plugin/manifest",
-        "essentials/plugin/locales",
-        "essentials/plugin/icons",
-        "essentials/plugin/rspack",
-        {
-          "group": "Entrypoints",
-          "pages": [
-            "essentials/plugin/entrypoints/background",
-            "essentials/plugin/entrypoints/command",
-            "essentials/plugin/entrypoints/service",
-            "essentials/plugin/entrypoints/content-script",
-            "essentials/plugin/entrypoints/relay",
-            "essentials/plugin/entrypoints/offscreen",
-            "essentials/plugin/entrypoints/page",
-            "essentials/plugin/entrypoints/popup",
-            "essentials/plugin/entrypoints/sidebar"
-          ]
-        }
-      ]
-    },
+    "essentials/plugin",
     "essentials/publishing"
   ]
 },
