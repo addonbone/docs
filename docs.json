@@ -69,7 +69,7 @@
               "essentials/icon",
               "essentials/assets",
               "essentials/environment-variables",
-              "essentials/bundler",
+              "essentials/rspack",
               {
                 "group": "Plugin",
                 "pages": [
