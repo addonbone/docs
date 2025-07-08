@@ -18,6 +18,7 @@
             "group": "Get Started",
             "pages": [
               "introduction",
+              "get-started/installation",
               "get-started/installation/new-extension",
               "get-started/installation/development-mode",
               "get-started/installation/production-build"
