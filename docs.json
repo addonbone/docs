@@ -96,6 +96,14 @@
               "entrypoints/popup",
               "entrypoints/sidebar"
             ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/compare",
+              "resources/faq",
+              "resources/plugins"
+            ]
           }
         ]
       },
