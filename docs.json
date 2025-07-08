@@ -30,7 +30,6 @@
           },
           {
             "group": "Essentials",
-            "icon": "star",
             "pages": [
               "essentials/structure",
               "essentials/entrypoint",
@@ -41,7 +40,7 @@
               "essentials/publishing",
               {
                 "group": "Configuration",
-                "icon": "settings",
+                "icon": "bolt",
                 "pages": [
                   "essentials/configuration/framework",
                   "essentials/configuration/typescript"
@@ -58,7 +57,7 @@
               },
               {
                 "group": "Messaging",
-                "icon": "message-square",
+                "icon": "message",
                 "pages": [
                   "essentials/messaging/introduction",
                   "essentials/messaging/react"
