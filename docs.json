@@ -19,9 +19,9 @@
             "pages": [
               "introduction",
               "installation/index",
-              "/installation/new-extension",
-              "/installation/development-mode",
-              "/installation/production-build"
+              "installation/new-extension",
+              "installation/development-mode",
+              "installation/production-build"
             ]
           },
           {
