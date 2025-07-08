@@ -12,36 +12,35 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "introduction",
-              {
-                "group": "Installation",
-                "icon": "package",
-                "pages": [
-                  "get-started/installation/new-extension",
-                  "get-started/installation/development-mode",
-                  "get-started/installation/production-build"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
-            ]
-          }
-        ]
-      },
+  "tab": "Guides",
+  "groups": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        {
+          "group": "Installation",
+          "pages": [
+            "get-started/installation/new-extension",
+            "get-started/installation/development-mode",
+            "get-started/installation/production-build"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Essentials",
+      "pages": [
+        "essentials/markdown",
+        "essentials/code",
+        "essentials/images",
+        "essentials/settings",
+        "essentials/navigation",
+        "essentials/reusable-snippets"
+      ]
+    }
+  ]
+},
       {
         "tab": "API Reference",
         "groups": [
