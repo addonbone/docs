@@ -32,23 +32,17 @@
             "group": "Essentials",
             "pages": [
               "essentials/structure",
-              "essentials/entrypoint",
-              "essentials/extension-apis",
-              "essentials/icon",
-              "essentials/assets",
-              "essentials/environment-variables",
-              "essentials/publishing",
               {
                 "group": "Configuration",
-                "icon": "bolt",
                 "pages": [
                   "essentials/configuration/framework",
                   "essentials/configuration/typescript"
                 ]
               },
+              "essentials/entrypoint",
+              "essentials/extension-apis",
               {
                 "group": "Storage",
-                "icon": "database",
                 "pages": [
                   "essentials/storage/storage",
                   "essentials/storage/secure-storage",
@@ -57,7 +51,6 @@
               },
               {
                 "group": "Messaging",
-                "icon": "message",
                 "pages": [
                   "essentials/messaging/introduction",
                   "essentials/messaging/react"
@@ -65,7 +58,6 @@
               },
               {
                 "group": "Locales",
-                "icon": "globe",
                 "pages": [
                   "essentials/locales/introduction",
                   "essentials/locales/native-locale",
@@ -74,9 +66,12 @@
                   "essentials/locales/react"
                 ]
               },
+              "essentials/icon",
+              "essentials/assets",
+              "essentials/environment-variables",
+              "essentials/bundler-rspack",
               {
                 "group": "Plugin",
-                "icon": "plug",
                 "pages": [
                   "essentials/plugin/introduction",
                   "essentials/plugin/startup",
@@ -85,7 +80,6 @@
                   "essentials/plugin/icons",
                   {
                     "group": "Entrypoints",
-                    "icon": "arrow-right-circle",
                     "pages": [
                       "essentials/plugin/entrypoints/background",
                       "essentials/plugin/entrypoints/command",
@@ -99,7 +93,8 @@
                     ]
                   }
                 ]
-              }
+              },
+              "essentials/publishing"
             ]
           }
         ]
