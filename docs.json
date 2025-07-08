@@ -14,20 +14,13 @@
       {
         "tab": "Guides",
         "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "index",
-              {
-                "group": "Installation",
-                "pages": [
-                  "get-started/installation/new-extension",
-                  "get-started/installation/development-mode",
-                  "get-started/installation/production-build"
-                ]
-              }
-            ]
-          },
+         {
+  "group": "Get Started",
+  "pages": [
+    "index",
+    "get-started/installation"
+  ]
+},
           {
             "group": "Essentials",
             "pages": [
