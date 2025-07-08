@@ -13,134 +13,23 @@
     "tabs": [
       {
         "tab": "Guides",
-        "groups": [
+        "pages": [
+          "index",
+          "installation",
           {
-            "group": "Get Started",
+            "page": "installation",
             "pages": [
-              {
-                "page": "index",
-                "label": "Introduction"
-              },
-              {
-                "page": "installation",
-                "pages": [
-                  "installation/new-extension",
-                  "installation/development-mode",
-                  "installation/production-build"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/structure",
-              {
-                "label": "Configuration",
-                "pages": [
-                  "essentials/configuration/framework",
-                  "essentials/configuration/typescript"
-                ]
-              },
-              "essentials/entrypoint",
-              "essentials/extension-apis",
-              {
-                "label": "Storage",
-                "pages": [
-                  "essentials/storage/storage",
-                  "essentials/storage/secure-storage",
-                  "essentials/storage/react"
-                ]
-              },
-              {
-                "label": "Messaging",
-                "pages": [
-                  "essentials/messaging/introduction",
-                  "essentials/messaging/react"
-                ]
-              },
-              {
-                "label": "Locales",
-                "pages": [
-                  "essentials/locales/introduction",
-                  "essentials/locales/native-locale",
-                  "essentials/locales/dynamic-locale",
-                  "essentials/locales/custom-locale",
-                  "essentials/locales/react"
-                ]
-              },
-              "essentials/icon",
-              "essentials/assets",
-              "essentials/env",
-              {
-                "label": "Plugin",
-                "pages": [
-                  "essentials/plugin/introduction",
-                  "essentials/plugin/startup",
-                  "essentials/plugin/manifest",
-                  "essentials/plugin/locales",
-                  "essentials/plugin/icons",
-                  {
-                    "label": "Bundler (Rspack)",
-                    "pages": [
-                      "essentials/plugin/bundler/entrypoints/background",
-                      "essentials/plugin/bundler/entrypoints/command",
-                      "essentials/plugin/bundler/entrypoints/service",
-                      "essentials/plugin/bundler/entrypoints/content-script",
-                      "essentials/plugin/bundler/entrypoints/relay",
-                      "essentials/plugin/bundler/entrypoints/offscreen",
-                      "essentials/plugin/bundler/entrypoints/page",
-                      "essentials/plugin/bundler/entrypoints/popup",
-                      "essentials/plugin/bundler/entrypoints/sidebar"
-                    ]
-                  },
-                  "essentials/plugin/publishing"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Entrypoints",
-            "pages": [
-              "entrypoints/background",
-              "entrypoints/command",
-              "entrypoints/service",
-              "entrypoints/content-script",
-              "entrypoints/relay",
-              "entrypoints/offscreen",
-              "entrypoints/page",
-              "entrypoints/popup",
-              "entrypoints/sidebar"
-            ]
-          },
-          {
-            "group": "Resources",
-            "pages": [
-              "resources/compare",
-              "resources/faq",
-              "resources/plugins"
+              "new-extension",
+              "development-mode",
+              "production-build"
             ]
           }
         ]
       },
       {
         "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
+        "pages": [
+          "api-introduction"
         ]
       }
     ]
