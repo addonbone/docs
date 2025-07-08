@@ -77,7 +77,22 @@
                   "essentials/plugin/startup",
                   "essentials/plugin/manifest",
                   "essentials/plugin/locales",
-                  "essentials/plugin/icons"
+                  "essentials/plugin/icons",
+                  "essentials/plugin/bundler-rspack",
+                  {
+                    "group": "Entrypoints",
+                    "pages": [
+                      "essentials/plugin/entrypoints/background",
+                      "essentials/plugin/entrypoints/command",
+                      "essentials/plugin/entrypoints/service",
+                      "essentials/plugin/entrypoints/content-script",
+                      "essentials/plugin/entrypoints/relay",
+                      "essentials/plugin/entrypoints/offscreen",
+                      "essentials/plugin/entrypoints/page",
+                      "essentials/plugin/entrypoints/popup",
+                      "essentials/plugin/entrypoints/sidebar"
+                    ]
+                  }
                 ]
               },
               "essentials/publishing"
