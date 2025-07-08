@@ -18,15 +18,6 @@
             "group": "Get Started",
             "pages": [
               "index",
-              "installation",
-              {
-                "page": "installation",
-                "pages": [
-                  "new-extension",
-                  "development-mode",
-                  "production-build"
-                ]
-              },
               "quickstart",
               "development"
             ]
