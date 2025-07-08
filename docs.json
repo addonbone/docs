@@ -13,26 +13,68 @@
     "tabs": [
       {
         "tab": "Guides",
-        "pages": [
-          "index",
-          "installation",
+        "groups": [
           {
-            "page": "installation",
+            "group": "Get Started",
             "pages": [
-              "new-extension",
-              "development-mode",
-              "production-build"
+              "index",
+              "installation",
+              {
+                "page": "installation",
+                "pages": [
+                  "new-extension",
+                  "development-mode",
+                  "production-build"
+                ]
+              },
+              "quickstart",
+              "development"
+            ]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/settings",
+              "essentials/navigation",
+              "essentials/reusable-snippets"
             ]
           }
         ]
       },
       {
         "tab": "API Reference",
-        "pages": [
-          "api-introduction"
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          }
         ]
       }
-    ]
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "href": "https://mintlify.com/docs",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://mintlify.com/community",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://mintlify.com/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
   },
   "logo": {
     "light": "/logo/light.svg",
