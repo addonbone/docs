@@ -22,75 +22,46 @@
   ]
 },
           {
-            "group": "Essentials",
-            "pages": [
-              "essentials/structure",
-              {
-                "group": "Configuration",
-                "pages": [
-                  "essentials/configuration/framework",
-                  "essentials/configuration/typescript"
-                ]
-              },
-              "essentials/entrypoint",
-              "essentials/extension-apis",
-              {
-                "group": "Storage",
-                "pages": [
-                  "essentials/storage/storage",
-                  "essentials/storage/secure-storage",
-                  "essentials/storage/react"
-                ]
-              },
-              {
-                "group": "Messaging",
-                "pages": [
-                  "essentials/messaging/introduction",
-                  "essentials/messaging/react"
-                ]
-              },
-              {
-                "group": "Locales",
-                "pages": [
-                  "essentials/locales/introduction",
-                  "essentials/locales/native-locale",
-                  "essentials/locales/dynamic-locale",
-                  "essentials/locales/custom-locale",
-                  "essentials/locales/react"
-                ]
-              },
-              "essentials/icon",
-              "essentials/assets",
-              "essentials/environment-variables",
-              "essentials/rspack",
-              {
-                "group": "Plugin",
-                "pages": [
-                  "essentials/plugin/introduction",
-                  "essentials/plugin/startup",
-                  "essentials/plugin/manifest",
-                  "essentials/plugin/locales",
-                  "essentials/plugin/icons",
-                  "essentials/plugin/bundler-rspack",
-                  {
-                    "group": "Entrypoints",
-                    "pages": [
-                      "essentials/plugin/entrypoints/background",
-                      "essentials/plugin/entrypoints/command",
-                      "essentials/plugin/entrypoints/service",
-                      "essentials/plugin/entrypoints/content-script",
-                      "essentials/plugin/entrypoints/relay",
-                      "essentials/plugin/entrypoints/offscreen",
-                      "essentials/plugin/entrypoints/page",
-                      "essentials/plugin/entrypoints/popup",
-                      "essentials/plugin/entrypoints/sidebar"
-                    ]
-                  }
-                ]
-              },
-              "essentials/publishing"
-            ]
-          },
+  "group": "Essentials",
+  "pages": [
+    "essentials/structure",
+    "essentials/configuration",
+    "essentials/entrypoint",
+    "essentials/extension-apis",
+    "essentials/storage",
+    "essentials/messaging",
+    "essentials/locales",
+    "essentials/icon",
+    "essentials/assets",
+    "essentials/environment-variables",
+    {
+      "group": "Plugin",
+      "pages": [
+        "essentials/plugin/introduction",
+        "essentials/plugin/startup",
+        "essentials/plugin/manifest",
+        "essentials/plugin/locales",
+        "essentials/plugin/icons",
+        "essentials/plugin/rspack",
+        {
+          "group": "Entrypoints",
+          "pages": [
+            "essentials/plugin/entrypoints/background",
+            "essentials/plugin/entrypoints/command",
+            "essentials/plugin/entrypoints/service",
+            "essentials/plugin/entrypoints/content-script",
+            "essentials/plugin/entrypoints/relay",
+            "essentials/plugin/entrypoints/offscreen",
+            "essentials/plugin/entrypoints/page",
+            "essentials/plugin/entrypoints/popup",
+            "essentials/plugin/entrypoints/sidebar"
+          ]
+        }
+      ]
+    },
+    "essentials/publishing"
+  ]
+},
           {
             "group": "Entrypoints",
             "pages": [
