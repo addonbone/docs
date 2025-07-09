@@ -35,7 +35,7 @@ addonbone/
 ├── .gitignore                  # Files ignored by Git
 ├── README.md                   # Main repository description
 ├── package.json                # Dependencies and scripts
-├── webpack.config.js           # Webpack configuration
+├── adnbn.config.js             # Webpack configuration
 └── LICENSE                     # License (e.g., MIT)
 ```
 
@@ -66,12 +66,12 @@ addonbone/
 - `.gitignore`: Specifies files and folders to ignore in Git.
 - `README.md`: Provides an overview and setup instructions for the repository.
 - `package.json`: Manages dependencies and defines build scripts.
-- `webpack.config.js`: Configuration file for Webpack to bundle the project.
+- `adnbn.config.js`: Configuration file for Webpack to bundle the project.
 - `LICENSE`: Contains the license agreement (e.g., MIT).
 
 ## Adding a `src` Directory
 
-Many developers prefer a `src` directory to separate source code from configuration files. You can enable it in the `wxt.config.ts` file:
+Many developers prefer a `src` directory to separate source code from configuration files. You can enable it in the `adnbn.config.ts` file:
 
 ```javascript
 export default defineConfig({
@@ -79,13 +79,13 @@ export default defineConfig({
 });
 ```
 
-After enabling, your project structure will adjust. Customize paths in `wxt.config.ts`:
+After enabling, your project structure will adjust. Customize paths in `adnbn.config.ts`:
 
 ```javascript
 export default defineConfig({
   // Relative to project root
   srcDir: "src",             // default: "."
-  modulesDir: "wxt-modules", // default: "modules"
+  modulesDir: "adnbn-modules", // default: "modules"
   outDir: "dist",            // default: ".output"
   publicDir: "static",       // default: "public"
 
