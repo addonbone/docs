@@ -54,7 +54,6 @@ npm create addonbone -- --entry=options,newtab,contents/inline
 ```
 
 This creates a project with:
-
 - An options page
 - A new tab page
 - An inline content script UI
@@ -78,7 +77,7 @@ npm create addonbone -- --with-env
 This generates a project based on the `with-env` template.
 
 :::tip
-Replace placeholder links (e.g., entry files directory, examples directory) with actual URLs or paths in your Docusaurus project.
+Replace placeholder links (e.g., entry files directory, examples directory) with actual URLs or paths in your Mintlify project.
 :::
 
 ---
@@ -183,7 +182,7 @@ npm run build -- --zip
 
 ### With a Specific Target
 
-Use the --target flag in the form of `<browser-name>-<manifest-version>`.
+Use the --target flag in the form of `browser-name-manifest-version` (e.g., `firefox-mv2`):
 
 ```bash
 addonbone build --target=firefox-mv2
@@ -192,7 +191,6 @@ addonbone build --target=firefox-mv2
 Bundle in `build/firefox-mv2-prod`. See [supported targets](#) for options.
 
 The flag enables:
-
 - Target-specific `.env.<browser-name>` file
 - Target-specific entry files (e.g., `popup.<browser-name>.tsx`)
 - Sets `process.env.ADDONBONE_BROWSER` for dead code elimination.
