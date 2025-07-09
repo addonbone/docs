@@ -6,3 +6,21 @@ description: "Description of your new file."
 ## Introduction
 
 ## React
+
+# Messaging
+
+[Chrome Docs](https://developer.chrome.com/docs/extensions/reference/messaging/) • [Firefox Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime#messaging)
+
+Read the docs linked above to learn more about using the vanilla messaging APIs.
+
+## Alternatives
+
+The vanilla APIs are difficult to use and can be a pain point for many new extension developers. For this reason, Addon Bone recommends installing an NPM package that wraps around the vanilla APIs.
+
+Here are some popular messaging libraries that support all browsers and work with Addon Bone:
+
+- **trpc-chrome**: tRPC adapter for Web Extensions.
+- **webext-bridge**: Messaging in WebExtensions made super easy. Out of the box.
+- **@webext-core/messaging**: Lightweight, type-safe wrapper around the Web Extension messaging APIs.
+- **@webext-core/proxy-service**: A type-safe wrapper around the Web Extension messaging APIs that lets you call a function from anywhere, but execute it in the background.
+- **Comctx**: Cross-context RPC solution with type safety and flexible adapters.

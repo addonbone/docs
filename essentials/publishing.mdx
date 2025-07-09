@@ -1,4 +1,170 @@
 ---
 title: "Publishing"
-description: "Description of your new file."
+description: "Addon Bone can ZIP your extension and submit it to various stores for review or for self-hosting."
 ---
+
+## First Time Publishing
+
+If you're publishing an extension to a store for the first time, you must manually navigate the process. Addon Bone doesn't help you create listings, as each store has unique steps and requirements that you need to familiarize yourself with.
+
+For specific details about each store, see the [Stores](#stores) sections below.
+
+- [Chrome Web Store](#chrome-web-store)
+- [Firefox Addon Store](#firefox-addon-store)
+- [Edge Addons](#edge-addons)
+
+## Automation
+
+Addon Bone provides two commands to help automate submitting a new version for review and publishing:
+
+- `addonbone submit init`: Set up all the required secrets and options for the `addonbone submit` command.
+- `addonbone submit`: Submit new versions of your extension for review (and publish them automatically once approved).
+
+To get started, run `addonbone submit init` and follow the prompts, or run `addonbone submit --help` to view all available options. Once finished, you should have a `.env.submit` file\! Addon Bone will use this file to submit your updates.
+
+> In CI, make sure you add all the environment variables to the submit step.
+
+To submit a new version for publishing, build all the ZIPs you plan on releasing:
+
+```bash
+addonbone zip
+addonbone zip -b firefox
+```
+
+Then run the `addonbone submit` command, passing in all the ZIP files you want to release. In this case, we'll do a release for all 3 major stores: Chrome Web Store, Edge Addons, and Firefox Addons Store.
+
+If it's your first time running the command or you recently made changes to the release process, test your secrets by passing the `--dry-run` flag:
+
+```bash
+addonbone submit --dry-run \
+  --chrome-zip .output/{your-extension}-{version}-chrome.zip \
+  --firefox-zip .output/{your-extension}-{version}-firefox.zip --firefox-sources-zip .output/{your-extension}-{version}-sources.zip \
+  --edge-zip .output/{your-extension}-{version}-chrome.zip
+```
+
+If the dry run passes, remove the flag and do the actual release:
+
+```bash
+addonbone submit \
+  --chrome-zip .output/{your-extension}-{version}-chrome.zip \
+  --firefox-zip .output/{your-extension}-{version}-firefox.zip --firefox-sources-zip .output/{your-extension}-{version}-sources.zip \
+  --edge-zip .output/{your-extension}-{version}-chrome.zip
+```
+
+<Warning>
+  See the [Firefox Add-on Store](#firefox-addon-store) section for more details about the `--firefox-sources-zip` option.
+</Warning>
+
+> These examples are designed to provide clear insights and are a good starting point for customizing your own workflows. Feel free to explore and adapt them to your project needs.
+
+## Stores
+
+### Chrome Web Store
+
+> ✅ Supported • [Developer Dashboard](https://chrome.google.com/webstore/developer/dashboard) • [Publishing Docs](https://developer.chrome.com/docs/webstore/publish/)
+
+To create a ZIP for Chrome:
+
+```bash
+addonbone zip
+```
+
+### Firefox Add-ons
+
+> ✅ Supported • [Developer Dashboard](https://addons.mozilla.org/developers/) • [Publishing Docs](https://extensionworkshop.com/documentation/publish/submitting-an-add-on/)
+
+Firefox requires you to upload a ZIP of your source code. This allows them to rebuild your extension and review the code in a readable way. More details can be found in [Firefox's docs](https://extensionworkshop.com/documentation/publish/source-code-submission/).
+
+When running `addonbone zip -b firefox`, Addon Bone will zip both your extension and sources. Certain files (such as config files, hidden files, tests, and excluded entrypoints) are automatically excluded from your sources. However, it's important to manually check the ZIP to ensure it only contains the files necessary to rebuild your extension.
+
+To customize which files are zipped, add the `zip` option to your config file.
+
+```javascript
+// addonbone.config.ts
+import { defineConfig } from 'addonbone';
+
+export default defineConfig({
+  zip: {
+    // ...
+  },
+});
+```
+
+If it's your first time submitting to the Firefox Addon Store, or if you've updated your project layout, always test your sources ZIP\! The commands below should allow you to rebuild your extension from inside the extracted ZIP.
+
+```bash
+# pnpm
+pnpm i
+pnpm addonbone zip:firefox
+
+# npm
+npm i
+npm run addonbone zip:firefox
+
+# yarn
+yarn
+yarn addonbone zip:firefox
+
+# bun
+bun i
+bun addonbone zip:firefox
+```
+
+Ensure that you have a `README.md` or `SOURCE_CODE_REVIEW.md` file with the above commands so that the Firefox team knows how to build your extension.
+
+Make sure the build output is the exact same when running `addonbone build -b firefox` in your main project and inside the zipped sources.
+
+<Warning>
+  If you use a `.env` file, it can affect the chunk hashes in the output directory. Either delete the `.env` file before running `addonbone zip -b firefox`, or include it in your sources ZIP with the `zip.includeSources` option. Be careful not to include any secrets in your `.env` files.
+</Warning>
+
+See [Issue #377](https://github.com/addonbone/addonbone/issues/377) for more details. 
+
+#### Private Packages
+
+If you use private packages and don’t want to provide your auth token to the Firefox team during the review process, you can use `zip.downloadPackages` to download any private packages and include them in the ZIP.
+
+```javascript
+// addonbone.config.ts
+export default defineConfig({
+  zip: {
+    downloadPackages: [
+      '@mycompany/some-package',
+      // ...
+    ],
+  },
+});
+```
+
+Depending on your package manager, the `package.json` in the sources ZIP will be modified to use the downloaded dependencies via the `overrides` or `resolutions` field.
+
+<Warning>
+  Addon Bone uses the command `npm pack <package-name>` to download the package. That means, regardless of your package manager, you need to properly set up a `.npmrc` file. NPM and PNPM both respect `.npmrc` files, but Yarn and Bun have their own ways of authorizing private registries, so you’ll need to add a `.npmrc` file.
+</Warning>
+
+### Safari
+
+> 🚧 Not Supported Yet
+
+Addon Bone does not currently support automated publishing for Safari. Safari extensions require a native macOS or iOS app wrapper, which Addon Bone does not create yet. For now, if you want to publish to Safari, follow this guide:
+
+- [Converting a Web Extension for Safari](https://developer.apple.com/documentation/safariservices/safari_web_extensions/converting_a_web_extension_for_safari) - "Convert your existing extension to a Safari web extension using Xcode’s command-line tool."
+
+When running the `safari-web-extension-converter` CLI tool, pass the `.output/safari-mv2` or `.output/safari-mv3` directory, not your source code directory:
+
+```bash
+pnpm addonbone build -b safari
+xcrun safari-web-extension-converter .output/safari-mv2
+```
+
+### Microsoft Edge Add-ons
+
+> ✅ Supported • [Developer Dashboard](https://aka.ms/PartnerCenterLogin) • [Publishing Docs](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/publish/publish-extension)
+
+No need to create a specific ZIP for Edge. If you're already publishing to the Chrome Web Store, you can reuse your Chrome ZIP.
+
+However, if you have features specifically for Edge, create a separate ZIP with:
+
+```bash
+addonbone zip -b edge
+```
