@@ -25,11 +25,11 @@ yarn create addonbone "My Extension"
 npm create addonbone "My Extension"
 ```
 
-:::note
-You can install the Addon Bone CLI globally using the command `pnpm i -g addonbone`. Replace `pnpm` with your preferred package manager (e.g., `yarn` or `npm`).
-:::
+<Note>
+  You can install the Addon Bone CLI globally using the command `pnpm i -g addonbone`. Replace `pnpm` with your preferred package manager (e.g., `yarn` or `npm`).
+</Note>
 
-### With `src` Directory
+\*\*With \*\*`src`**Directory**
 
 By default, Addon Bone expects all source code to reside in the root directory. If you prefer to organize your source code in a `src` directory, follow these steps:
 
@@ -54,13 +54,14 @@ npm create addonbone -- --entry=options,newtab,contents/inline
 ```
 
 This creates a project with:
+
 - An options page
 - A new tab page
 - An inline content script UI
 
-:::note
-When using `npm`, include `--` before Addon Bone's flags (e.g., `--entry`) to pass arguments correctly.
-:::
+<Note>
+  When using `npm`, include `--` before Addon Bone's flags (e.g., `--entry`) to pass arguments correctly.
+</Note>
 
 ### With an Example Template
 
@@ -76,19 +77,13 @@ npm create addonbone -- --with-env
 
 This generates a project based on the `with-env` template.
 
-:::tip
-Replace placeholder links (e.g., entry files directory, examples directory) with actual URLs or paths in your Mintlify project.
-:::
-
----
+<Tip>
+  Replace placeholder links (e.g., entry files directory, examples directory) with actual URLs or paths in your Mintlify project.
+</Tip>
 
 ## Development Mode
 
-Start developing your Addon Bone extension after setup.
-
-### Start the Development Server
-
-Navigate to your project directory and run:
+Start developing your Addon Bone extension after setup. Navigate to your project directory and run:
 
 ```bash
 pnpm dev
@@ -102,15 +97,17 @@ Addon Bone creates a dev bundle with a live-reloading server, updating on file c
 
 ### Loading the Extension
 
-(manual setup for now; automation planned.) Load in Chrome:
-
 1. Go to `chrome://extensions` and enable **Developer Mode**.
 2. Click **Load Unpacked** and select `build/chrome-mv3-dev` (or `build/chrome-mv3-prod`).
 3. Click the puzzle piece icon in the toolbar and select your extension.
 
-:::tip
-Pin your extension to the toolbar for quick access.
-:::
+![Developer Mode Web](/images/developer_mode.webp)
+
+![Popup Example Web](/images/popup_example.webp)
+
+<Tip>
+  Pin your extension to the toolbar for quick access.
+</Tip>
 
 ### With a Specific Target
 
@@ -191,6 +188,7 @@ addonbone build --target=firefox-mv2
 Bundle in `build/firefox-mv2-prod`. See [supported targets](#) for options.
 
 The flag enables:
+
 - Target-specific `.env.<browser-name>` file
 - Target-specific entry files (e.g., `popup.<browser-name>.tsx`)
 - Sets `process.env.ADDONBONE_BROWSER` for dead code elimination.
