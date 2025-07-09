@@ -1,4 +1,97 @@
 ---
 title: "Structure"
-description: "Description of your new file."
+description: "This guide outlines the strict project structure followed by Addon Bone. By default, it uses a flat folder structure, but you can customize it with a src directory. Addon Bone enforces a specific layout to organize your extension project. Here's the default structure:"
 ---
+
+```
+addonbone/
+├── .github/                    # GitHub configurations (workflows, issue templates)
+│   ├── workflows/
+│   │   └── ci.yml             # CI/CD configuration for builds
+│   └── ISSUE_TEMPLATE.md      # Template for bug reports
+├── Shared/                     # Shared logic and base architecture
+│   ├── background/            # Background scripts
+│   ├── content_scripts/       # Content scripts
+│   ├── popup/                 # UI for popups
+│   ├── sidebar/               # UI for sidebars
+│   ├── offscreen/             # Logic for offscreen components
+│   ├── utils/                 # Utilities
+│   └── index.js               # Entry point for shared logic
+├── Apps/                       # Individual extensions
+│   ├── app1/                  # Example custom extension 1
+│   │   ├── manifest.json      # Manifest for the extension
+│   │   ├── styles/            # Custom styles
+│   │   ├── icons/             # Icons
+│   │   └── index.js           # Entry point for the app
+│   └── app2/                  # Example custom extension 2
+│       ├── manifest.json      # Manifest
+│       ├── styles/            # Custom styles
+│       ├── icons/             # Icons
+│       └── index.js           # Entry point
+├── Dist/                       # Compiled builds
+│   ├── chrome-mv3-dev/        # Dev build for Chrome MV3
+│   ├── firefox-mv2-prod/      # Prod build for Firefox MV2
+│   └── safari-mv3-dev/        # Dev build for Safari MV3
+├── .gitignore                  # Files ignored by Git
+├── README.md                   # Main repository description
+├── package.json                # Dependencies and scripts
+├── webpack.config.js           # Webpack configuration
+└── LICENSE                     # License (e.g., MIT)
+```
+
+## Summary of Files and Directories
+
+- `.github/`: Contains GitHub configurations, including workflows and issue templates.
+  - `workflows/ci.yml`: CI/CD configuration for automated builds.
+  - `ISSUE_TEMPLATE.md`: Template for submitting bug reports.
+- `Shared/`: Houses shared logic and base architecture for all extensions.
+  - `background/`: Directory for background scripts.
+  - `content_scripts/`: Directory for content scripts.
+  - `popup/`: Directory for popup UI components.
+  - `sidebar/`: Directory for sidebar UI components.
+  - `offscreen/`: Directory for offscreen document logic.
+  - `utils/`: Directory for utility functions.
+  - `index.js`: Entry point for the shared logic.
+- `Apps/`: Contains individual extension projects.
+  - `app1/`: Example custom extension 1.
+    - `manifest.json`: Manifest file defining the extension.
+    - `styles/`: Folder for custom CSS styles.
+    - `icons/`: Folder for extension icons.
+    - `index.js`: Entry point for the extension.
+  - `app2/`: Example custom extension 2 (same structure as `app1`).
+- `Dist/`: Stores compiled builds for different browsers and modes.
+  - `chrome-mv3-dev/`: Development build for Chrome Manifest V3.
+  - `firefox-mv2-prod/`: Production build for Firefox Manifest V2.
+  - `safari-mv3-dev/`: Development build for Safari Manifest V3.
+- `.gitignore`: Specifies files and folders to ignore in Git.
+- `README.md`: Provides an overview and setup instructions for the repository.
+- `package.json`: Manages dependencies and defines build scripts.
+- `webpack.config.js`: Configuration file for Webpack to bundle the project.
+- `LICENSE`: Contains the license agreement (e.g., MIT).
+
+## Adding a `src` Directory
+
+Many developers prefer a `src` directory to separate source code from configuration files. You can enable it in the `wxt.config.ts` file:
+
+```javascript
+export default defineConfig({
+  srcDir: 'src',
+});
+```
+
+After enabling, your project structure will adjust. Customize paths in `wxt.config.ts`:
+
+```javascript
+export default defineConfig({
+  // Relative to project root
+  srcDir: "src",             // default: "."
+  modulesDir: "wxt-modules", // default: "modules"
+  outDir: "dist",            // default: ".output"
+  publicDir: "static",       // default: "public"
+
+  // Relative to srcDir
+  entrypointsDir: "entries", // default: "entrypoints"
+});
+```
+
+Use absolute or relative paths as needed.
