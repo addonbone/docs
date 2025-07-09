@@ -18,9 +18,9 @@ browser.action.onClicked.addListener(() => {
 });
 ```
 
-:::tip
-With auto-imports enabled, you don’t even need to import this variable from `addonbone/browser`\!
-:::
+<Tip>
+  With auto-imports enabled, you don’t even need to import this variable from `addonbone/browser`\!
+</Tip>
 
 The `browser` variable provided by Addon Bone is a simple export of the `browser` or `chrome` globals provided by the browser at runtime:
 
@@ -54,9 +54,9 @@ See its [Installation Guide](#) to get started.
 
 Depending on the manifest version, browser, and permissions, some APIs may not be available at runtime. If an API is unavailable, it will be `undefined`.
 
-:::warning
-Types will not help you here. The types Addon Bone provides for `browser` assume all APIs exist. You are responsible for knowing whether an API is available.
-:::
+<Warning>
+  Types will not help you here. The types Addon Bone provides for `browser` assume all APIs exist. You are responsible for knowing whether an API is available.
+</Warning>
 
 To check if an API is available, use feature detection:
 
