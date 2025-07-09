@@ -26,7 +26,7 @@
   "pages": [
     "essentials/structure",
     "essentials/configuration",
-    "essentials/entrypoint",
+    "essentials/entrypoints",
     "essentials/extension-apis",
     "essentials/storage",
     "essentials/messaging",
