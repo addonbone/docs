@@ -1,4 +1,85 @@
 ---
 title: "Extension APIs"
-description: "Description of your new file."
 ---
+
+[Chrome Docs](https://developer.chrome.com/docs/extensions/reference/) • [Firefox Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API)
+
+Different browsers provide different global variables for accessing extension APIs (e.g., Chrome provides `chrome`, Firefox provides `browser`, etc.). Addon Bone merges these into a unified API accessed through the `browser` variable.
+
+## Using the Browser API
+
+Import the `browser` variable from `addonbone/browser`:
+
+```javascript
+import { browser } from 'addonbone/browser';
+
+browser.action.onClicked.addListener(() => {
+  // ...
+});
+```
+
+:::tip
+With auto-imports enabled, you don’t even need to import this variable from `addonbone/browser`\!
+:::
+
+The `browser` variable provided by Addon Bone is a simple export of the `browser` or `chrome` globals provided by the browser at runtime:
+
+```javascript
+export const browser = globalThis.browser?.runtime?.id
+  ? globalThis.browser
+  : globalThis.chrome;
+```
+
+This allows you to use the promise-style API for both Manifest V2 (MV2) and Manifest V3 (MV3), ensuring compatibility across all browsers (Chromium, Firefox, Safari, etc.).
+
+## Accessing Types
+
+All types can be accessed via Addon Bone's `Browser` namespace:
+
+```javascript
+import { type Browser } from 'addonbone/browser';
+
+function handleMessage(message: any, sender: Browser.runtime.MessageSender) {
+  // ...
+}
+```
+
+## Using webextension-polyfill
+
+If you want to use the `webextension-polyfill` when importing `browser`, install the `@addonbone-dev/webextension-polyfill` package.
+
+See its [Installation Guide](#) to get started.
+
+## Feature Detection
+
+Depending on the manifest version, browser, and permissions, some APIs may not be available at runtime. If an API is unavailable, it will be `undefined`.
+
+:::warning
+Types will not help you here. The types Addon Bone provides for `browser` assume all APIs exist. You are responsible for knowing whether an API is available.
+:::
+
+To check if an API is available, use feature detection:
+
+```javascript
+if (browser.runtime.onSuspend != null) {
+  browser.runtime.onSuspend.addListener(() => {
+    // ...
+  });
+}
+```
+
+Here, optional chaining is your best friend:
+
+```javascript
+browser.runtime.onSuspend?.addListener(() => {
+  // ...
+});
+```
+
+Alternatively, for supporting similar APIs under different names (e.g., for MV2 and MV3), you can do:
+
+```javascript
+(browser.action ?? browser.browser_action).onClicked.addListener(() => {
+  // ...
+});
+```
