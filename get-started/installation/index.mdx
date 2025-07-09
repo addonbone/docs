@@ -1,14 +1,252 @@
 ---
 title: "Installation"
+description: "This guide covers how to set up a new extension project using Addon Bone. Follow the steps below to initialize your project with various configurations."
 ---
 
-# Hello.
+## Create a New Extension
 
-Этот раздел описывает процесс установки AddonBone. Выберите нужный метод:
+To initialize a new extension project, use the interactive initialization wizard. Run one of the following commands based on your preferred package manager:
 
-## New Extension
+```bash
+pnpm create addonbone
+# OR
+yarn create addonbone
+# OR
+npm create addonbone
+```
 
-## Development mode
+To skip the naming prompt, provide a project name as a positional argument:
+
+```bash
+pnpm create addonbone "My Extension"
+# OR
+yarn create addonbone "My Extension"
+# OR
+npm create addonbone "My Extension"
+```
+
+:::note
+You can install the Addon Bone CLI globally using the command `pnpm i -g addonbone`. Replace `pnpm` with your preferred package manager (e.g., `yarn` or `npm`).
+:::
+
+### With `src` Directory
+
+By default, Addon Bone expects all source code to reside in the root directory. If you prefer to organize your source code in a `src` directory, follow these steps:
+
+1. Create a `src` directory in your project root.
+2. Move your source files into the `src` directory.
+3. Update your project configuration to point to the `src` directory as the source root.
+
+For detailed instructions, refer to the [official guide](#) on using a `src` directory.
+
+### With Specific Entry Files
+
+The default Addon Bone project includes a single `popup` entry file. To customize the entry files, use the `--entry` flag with a comma-separated list of entry file names (without file extensions).
+
+Available entry files include `options`, `newtab`, `contents/inline`, and more. Check the [entry files directory](#) for a complete list.
+
+Example command:
+
+```bash
+pnpm create addonbone --entry=options,newtab,contents/inline
+# OR
+npm create addonbone -- --entry=options,newtab,contents/inline
+```
+
+This creates a project with:
+
+- An options page
+- A new tab page
+- An inline content script UI
+
+:::note
+When using `npm`, include `--` before Addon Bone's flags (e.g., `--entry`) to pass arguments correctly.
+:::
+
+### With an Example Template
+
+Bootstrap a project with predefined templates using the `--with` flag. Select an example from the [examples directory](#).
+
+Example:
+
+```bash
+pnpm create addonbone --with-env
+# OR
+npm create addonbone -- --with-env
+```
+
+This generates a project based on the `with-env` template.
+
+:::tip
+Replace placeholder links (e.g., entry files directory, examples directory) with actual URLs or paths in your Docusaurus project.
+:::
+
+---
+
+## Development Mode
+
+Start developing your Addon Bone extension after setup.
+
+### Start the Development Server
+
+Navigate to your project directory and run:
+
+```bash
+pnpm dev
+# OR
+npm run dev
+# OR
+addonbone dev
+```
+
+Addon Bone creates a dev bundle with a live-reloading server, updating on file changes and reloading the browser. The extension name is prefixed with `DEV |` and the icon turns grayscale.
+
+### Loading the Extension
+
+(manual setup for now; automation planned.) Load in Chrome:
+
+1. Go to `chrome://extensions` and enable **Developer Mode**.
+2. Click **Load Unpacked** and select `build/chrome-mv3-dev` (or `build/chrome-mv3-prod`).
+3. Click the puzzle piece icon in the toolbar and select your extension.
+
+:::tip
+Pin your extension to the toolbar for quick access.
+:::
+
+### With a Specific Target
+
+Build for a specific browser with:
+
+```bash
+addonbone dev --target=firefox-mv2
+```
+
+Bundle is in `build/firefox-mv2-dev`. See [supported targets](#).
+
+### Without Source Maps
+
+Disable source maps:
+
+```bash
+addonbone dev --no-source-maps
+```
+
+Useful for incompatible dependencies.
+
+### With a Specific Hostname and Port
+
+Default: `localhost:1012`. Customize with:
+
+```bash
+addonbone dev --serve-host=localhost --serve-port=1012
+```
+
+HMR defaults to `localhost:1815` (reporter at 1816). Adjust with:
+
+```bash
+addonbone dev --hmr-host=localhost --hmr-port=1815
+```
+
+---
 
 ## Production Build
 
+Create a production bundle for distribution.
+
+### Create a Production Build
+
+Run:
+
+```bash
+pnpm build
+# OR
+npm run build
+```
+
+### Generating a Zip Bundle
+
+Create a zip for web stores:
+
+```bash
+pnpm package
+# OR
+npm run package
+```
+
+Combine build and zip:
+
+```bash
+pnpm build --zip
+# OR
+npm run build -- --zip
+```
+
+### With a Specific Target
+
+Use the --target flag in the form of `<browser-name>-<manifest-version>`.
+
+```bash
+addonbone build --target=firefox-mv2
+```
+
+Bundle in `build/firefox-mv2-prod`. See [supported targets](#) for options.
+
+The flag enables:
+
+- Target-specific `.env.<browser-name>` file
+- Target-specific entry files (e.g., `popup.<browser-name>.tsx`)
+- Sets `process.env.ADDONBONE_BROWSER` for dead code elimination.
+
+Example:
+
+```javascript
+if (process.env.ADDONBONE_BROWSER === "safari") {
+  console.log("A")
+} else {
+  console.log("B")
+}
+```
+
+Trims to `console.log("A")` for `safari-mv3`.
+
+### With a Custom Tag
+
+Default tag is `prod`. Change with:
+
+```bash
+addonbone build --tag=staging
+```
+
+Creates bundle in `build/chrome-mv3-staging`, sets `process.env.ADDONBONE_TAG` to `staging`, and prioritizes `.env.staging` or `.env.staging.local`.
+
+### With Source Maps
+
+Enable source maps:
+
+```bash
+addonbone build --source-maps
+```
+
+### Bundle Buddy
+
+Analyze with:
+
+```bash
+addonbone build --source-maps --bundle-buddy
+```
+
+### Optimization
+
+Disable minification:
+
+```bash
+addonbone build --no-minify
+```
+
+Optimize with hoisting:
+
+```bash
+addonbone build --hoist
+```
+
+Note: Hoisting may break dynamic imports but improves speed and size.
