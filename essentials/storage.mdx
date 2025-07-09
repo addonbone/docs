@@ -1,10 +1,42 @@
 ---
 title: "Storage"
-description: "Description of your new file."
 ---
+
+[Chrome Docs](https://developer.chrome.com/docs/extensions/reference/storage/) • [Firefox Docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage)
+
+You can use the vanilla APIs (see docs above), use Addon Bone's built-in storage API, or install a package from NPM.
 
 ## Storage
 
 ## Secure Storage
 
 ## React
+
+---
+
+## Alternatives
+
+### Addon Bone Utils Storage (Recommended)
+
+Addon Bone ships with its own wrapper around the vanilla storage APIs that simplifies common use cases:
+
+```javascript
+import { storage } from 'adnbn/utils/storage';
+
+storage.local.set({ key: 'value' }).then(() => {
+  console.log('Value stored');
+});
+```
+
+### DIY
+
+If you're migrating to Addon Bone and already have a storage wrapper, keep using it. In the future, if you want to delete that code, you can switch to one of these alternatives, but there's no need to replace working code during a migration.
+
+### Other NPM Packages
+
+There are many wrappers around the storage API. Here are some popular options:
+
+- **adnbn-storage**: A more usable, typed storage API for Web Extensions.
+- **@adnbn-core/storage**: A type-safe, localStorage-esque wrapper around the Web Extension storage APIs.
+
+## 
