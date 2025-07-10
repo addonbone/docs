@@ -1,4 +1,110 @@
 ---
-title: "Compare"
-description: "Description of your new file."
+id: compare
+title: Compare Frameworks
+sidebar_label: Compare
 ---
+
+# Compare 
+
+This page provides a detailed comparison of the **Addon Bone**, **WXT**, and **Plasmo** frameworks for building browser extensions. Each framework offers unique features and benefits, making them suitable for different use cases. Below, you'll find an overview and a side-by-side comparison to help you choose the right tool for your project.
+
+## Overview
+
+A quick summary of each framework:
+
+| Framework   | Language Support  | Build Tool     | Dev Experience         | Output Size | Type Safety | Actively Maintained |
+|-------------|-------------------|----------------|------------------------|------------|-------------|----------------------|
+| **Addon Bone** | TypeScript, React | Rspack          | Fast, Configurable     | 🟢 Very Small    | ✅ Strong    | ✅ Yes               |
+| **WXT**        | TypeScript        | esbuild/Vite    | Minimal, Fast          | 🟢 Small | ✅ Strong    | ✅ Yes               |
+| **Plasmo**     | TypeScript        | esbuild         | DX focused, opinionated | 🟡 Medium   | ✅ Strong    | ✅ Yes               |
+
+
+### Addon Bone
+Addon Bone is a modern framework designed to simplify the development of browser extensions with a focus on flexibility. It provides a streamlined workflow for managing assets, environment variables, and cross-browser compatibility.
+
+### WXT
+WXT is a next-generation framework built on Vite, offering an intuitive and safe way to develop web extensions. It emphasizes a conventional structure, automatic imports, and support for multiple browsers, making it a popular choice for developers.
+
+### Plasmo
+Plasmo is an all-in-one platform that simplifies the creation, testing, and publishing of browser extensions. It provides built-in support for React, Vue, and Svelte, along with features like Content Scripts UI and automated deployment.
+
+## Feature Comparison
+
+| Feature                  | Addon Bone                 | WXT                          | Plasmo                       |
+|--------------------------|----------------------------|------------------------------|------------------------------|
+| **Base Technology**      | Vite                       | Vite                         | Parcel                       |
+| **Supported UI Frameworks** | All (via Vite plugins)   | All (via Vite plugins)       | React, Vue, Svelte           |
+| **Cross-Browser Support** | Yes                        | Yes                          | Yes                          |
+| **Manifest Versions**    | MV2, MV3                   | MV2, MV3                     | MV2, MV3                     |
+| **Hot Module Replacement (HMR)** | Yes                    | Yes                          | Yes                          |
+| **Messaging API**        | Built-in        | Planned (early stage)        | Built-in                     |
+| **Automated Deployment** | No                         | No (on roadmap)              | Yes (via BPP)                |
+| **Build Size**           | Optimized (Vite-based)     | Smaller (Vite-based)         | Larger (Parcel-based)        |
+| **Learning Curve**       | Moderate                   | Low to Moderate              | Low                          |
+| **Community Support**    | Growing                    | Active                       | Active (Discord)             |
+
+## Detailed Insights
+
+### When to Use Addon Bone
+- Ideal for developers who need flexibility with various UI frameworks and prefer a Vite-based workflow.
+- Best for projects requiring custom configurations and asset management.
+
+### When to Use WXT
+- Suitable for developers seeking a conventional structure with minimal setup.
+- Great for projects benefiting from Vite's performance and smaller build sizes.
+
+### When to Use Plasmo
+- Perfect for React, Vue, or Svelte users who want an all-in-one solution with built-in deployment.
+- Recommended for projects needing quick prototyping and UI injection features like CSUI.
+
+## Conclusion
+The choice between Addon Bone, WXT, and Plasmo depends on your project's requirements, preferred UI framework, and deployment needs. Explore their documentation and examples to find the best fit for your workflow.
+
+
+## Output & Bundle Size
+
+Benchmark based on a simple popup extension:
+
+| Framework   | Size (min+gzip) | Notes                     |
+|-------------|-----------------|---------------------------|
+| Addon Bone  | ~10KB           | Uses Rspack               |
+| WXT         | ~35KB           | Very lean setup           |
+| Plasmo      | ~60KB           | Includes built-in tooling |
+
+
+## When to Use What?
+
+| Use Case                          | Best Choice     |
+|----------------------------------|-----------------|
+| Maximum control & performance    | **Addon Bone**  |
+| Minimal setup, fast output       | **WXT**         |
+| Developer tools + UI generator   | **Plasmo**      |
+
+## 🧪 Example Code Comparison
+
+### Background Script (Hello World)
+
+#### Addon Bone
+```ts
+export default defineBackground(() => {
+  console.log("Hello from Addon Bone");
+});
+```
+
+#### WXT
+```ts
+console.log("Hello from WXT");
+```
+
+#### Plasmo
+```ts
+console.log("Hello from Plasmo");
+```
+
+## Resources
+[Addon Bone GitHub](https://github.com/addonbone/addonbone)
+
+[WXT GitHub](https://github.com/wxt-dev/wxt)
+
+[Plasmo GitHub](https://github.com/PlasmoHQ/plasmo)
+
